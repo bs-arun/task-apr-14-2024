@@ -1,0 +1,32 @@
+<div class="container mt-5">
+    <div class="row justify-content-center">
+        <div class="col-md-12 col-md-offset-4">
+            <h2 class="text-center">Login History</h2>
+            <div class="border p-5 mt-5">
+                <table class="table">
+                    <thead>
+                      <tr>
+                        <!-- <th scope="col">S. No</th> -->
+                        <th scope="col">Email</th>
+                        <th scope="col">IP</th>
+                        <th scope="col">OS</th>
+                        <th scope="col">Browser</th>
+                        <th scope="col">Logged At</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr *ngFor="let data of history">
+                        <!-- <th scope="row">{{i+1}}</th> -->
+                        <td>{{data.email}}</td>
+                        <td>{{data.ip}}</td>
+                        <td>{{data.os}}</td>
+                        <td>{{data.browser}}</td>
+                        <td>{{data.createdAt | date : 'MMM d, y, h:mm:ss a'}}</td>
+                      </tr>
+                     
+                    </tbody>
+                  </table>
+            </div>
+        </div>
+    </div>
+</div>

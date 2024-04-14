@@ -1,0 +1,65 @@
+<div class="container mt-5 " *ngIf="register">
+    <div class="row justify-content-center">
+        <div class="col-md-8 col-md-offset-4">
+            <h2 class="text-center">Register</h2>
+            <div class="border p-5 mt-5">
+                <div class="row g-3">
+                    <div class="col-12">
+                      <label for="firstname" class="form-label">First Name</label>
+                      <input type="text" class="form-control" [(ngModel)]="firstName" id="firstname">
+                      <small *ngIf="errorMessage.firstName" class="dangerClr">*First Name is required</small>
+                    </div>
+                    <div class="col-12">
+                      <label for="lastname" class="form-label">Last Name</label>
+                      <input type="text" class="form-control" [(ngModel)]="lastName" id="lastname">
+                      <small *ngIf="errorMessage.lastName" class="dangerClr">*Last Name is required</small>
+                    </div>
+                    <div class="col-12">
+                        <label for="typeemail" class="form-label">Email</label>
+                        <input type="email" class="form-control" [(ngModel)]="email"  id="typeemail">
+                        <small *ngIf="errorMessage.email" class="dangerClr">*Email is required</small>
+                      </div>
+                      <div class="col-12">
+                        <label for="passwordone" class="form-label">Password</label>
+                        <input type="password" class="form-control" [(ngModel)]="password"  id="passwordone">
+                        <small *ngIf="errorMessage.password" class="dangerClr">*Password is required</small>
+                      </div>
+                      <div class="col-12">
+                        <label for="passwordtwo" class="form-label">Confirm Password</label>
+                        <input type="password" class="form-control" [(ngModel)]="confirmPassword"  id="passwordtwo">
+                        <small *ngIf="errorMessage.confirmPassword" class="dangerClr">*Confirm Password is required</small>
+                        <small *ngIf="errorMessage.samePassword" class="dangerClr">*Password and Confirm password are must be same</small>
+                      </div>
+                    <div class="col-12 d-flex justify-content-between">
+                        <button type="button" class="btn btn-primary" (click)="submitRegister()" [disabled]="!firstName && !lastName && !email && !password && !confirmPassword">Register</button>
+                      <button type="button" class="btn btn-primary" (click)="register = false">Sign in</button>
+                    </div>
+                  </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="container mt-5" *ngIf="!register">
+    <div class="row justify-content-center">
+        <div class="col-md-8 col-md-offset-4">
+            <h2 class="text-center">Log in</h2>
+            <div class="border p-5 mt-5">
+                <div class="row g-3">
+                    <div class="col-12">
+                        <label for="typeemail" class="form-label">Email</label>
+                        <input type="email" class="form-control" [(ngModel)]="sign_email" id="typeemail">
+                      </div>
+                      <div class="col-12">
+                        <label for="passwordone" class="form-label">Password</label>
+                        <input type="password" class="form-control" [(ngModel)]="sign_pass" id="passwordone">
+                      </div>
+                    <div class="col-12 d-flex justify-content-between">
+                      <button type="button" class="btn btn-primary" (click)="submitLogin()" [disabled]="!sign_email && !sign_pass">Sign in</button>
+                      <button type="button" class="btn btn-primary" (click)="register = true">Register</button>
+                    </div>
+                  </div>
+            </div>
+        </div>
+    </div>
+</div>
